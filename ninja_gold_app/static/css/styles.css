@@ -1,0 +1,57 @@
+.row {
+	margin: 20px 0;
+}
+.place {
+	padding: 20px;
+	margin: 15px;
+	border: 2px solid black;
+	text-align: center;
+}
+
+.bold {
+	font-weight: 600;
+	font-size: 26px;
+}
+
+.italic {
+	font-style: italic;
+	font-size: 16px;
+}
+
+.flex-nowrap .col-sm-3 {
+	-ms-flex: 0 0 22%;
+	flex: 0 0 22%;
+}
+
+a.btn-danger {
+	margin: 0 10px 10px 10px;
+	padding: 10px;
+	height: fit-content;
+}
+
+.red {
+	color: #dc3545;
+}
+
+.green {
+	color: #28a745;
+}
+
+div#activity {
+	height: fit-content;
+	min-height: 200px;
+}
+
+@media (max-width: 575.98px) {
+	.bold {
+		font-weight: 500;
+		font-size: 22px;
+	}
+	div.flex-nowrap  {
+		flex-wrap: wrap!important;
+	}
+	.flex-nowrap .col-sm-3 {
+		-ms-flex: 0 0 42%;
+		flex: 0 0 42%;
+	}
+}
