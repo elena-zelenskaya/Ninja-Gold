@@ -24,26 +24,18 @@
 		</div>
 			<div class="row flex-nowrap justify-content-between">
 				<div class="col col-sm-3 place"><p class="bold">Farm</p> <p class="italic">(earns 10-20 golds)</p>
-					<form action="process_money/" method="POST">
-						{% csrf_token %}
-						<input type="hidden" name="gold" value="1">
-						<div class="text-center"><button type="submit" class="btn btn-success mb-2 mt-5">Find Gold!</button></div>
-					</form>
+					
+						<div class="text-center"><a href="farm" class="btn btn-success mb-2 mt-5">Find Gold!</a></div>
+
 				</div>
-				<div class="col col-sm-3 place"><p class="bold">Cave</p> <p class="italic">(earns 5-10 golds)</p><form action="process_money/" method="POST">
-					{% csrf_token %}
-					<input type="hidden" name="gold" value="2">
-					<div class="text-center"><button type="submit" class="btn btn-success mb-2 mt-5">Find Gold!</button></div>
+				<div class="col col-sm-3 place"><p class="bold">Cave</p> <p class="italic">(earns 5-10 golds)</p>
+					<div class="text-center"><a href="cave" class="btn btn-success mb-2 mt-5">Find Gold!</a></div>
 				</form></div>
-				<div class="col col-sm-3 place"><p class="bold">House</p> <p class="italic">(earns 2-5 golds)</p><form action="process_money/" method="POST">
-					{% csrf_token %}
-					<input type="hidden" name="gold" value="3">
-					<div class="text-center"><button type="submit" class="btn btn-success mb-2 mt-5">Find Gold!</button></div>
+				<div class="col col-sm-3 place"><p class="bold">House</p> <p class="italic">(earns 2-5 golds)</p>
+					<div class="text-center"><a href="house" class="btn btn-success mb-2 mt-5">Find Gold!</a></div>
 				</form></div>
-				<div class="col col-sm-3 place"><p class="bold">Casino</p> <p class="italic">(earns/takes 0-50 golds)</p><form action="process_money/" method="POST">
-					{% csrf_token %}
-					<input type="hidden" name="gold" value="4">
-					<div class="text-center"><button type="submit" class="btn btn-success mb-2 mt-5">Find Gold!</button></div>
+				<div class="col col-sm-3 place"><p class="bold">Casino</p> <p class="italic">(earns/takes 0-50 golds)</p>
+					<div class="text-center"><a href="casino" class="btn btn-success mb-2 mt-5">Find Gold!</a></div>
 				</form></div>
 			</div>
 			<div class="row form-group">

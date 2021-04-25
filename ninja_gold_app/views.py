@@ -14,31 +14,28 @@ def index(request):
 	}
     return render(request, 'index.html', context)
 
-def process_money(request):
-    if request.method == "POST":
+def process_money(request, location):
+    if request.method == "GET":
         dateTimeObj = datetime.now()
         timestampStr = dateTimeObj.strftime("%Y/%m/%d %I:%M:%S %p")
-        hidden_input_value = request.POST["gold"]
-        if hidden_input_value == '1':
+        if location == 'farm':
             rand_gold = round(10 + random.random() * 10)
-            request.session["gold_sum"] += rand_gold
-            request.session["activity"] += [f"Earned {rand_gold} golds from the farm ({timestampStr})"]
-        if hidden_input_value == '2':
+        elif location == 'cave':
             rand_gold = round(5 + random.random() * 5)
-            request.session["gold_sum"] += rand_gold
-            request.session["activity"] += [f"Earned {rand_gold} golds from the cave ({timestampStr})"]
-        if hidden_input_value == '3':
+        elif location == 'house':
             rand_gold = round(2 + random.random() * 3)
-            request.session["gold_sum"] += rand_gold
-            request.session["activity"] += [f"Earned {rand_gold} golds from the house ({timestampStr})"]
-        if hidden_input_value == '4':
+        else:
             rand_gold = round(random.random() * 50)
             if round(random.random()):
                 request.session["gold_sum"] += rand_gold
-                request.session["activity"] += [f"Entered the casino and gained {rand_gold} golds. Hooray! ({timestampStr})"]
+                request.session["activity"] += [f"Entered the {location} and gained {rand_gold} golds. Hooray! ({timestampStr})"]
+                return redirect("/")
             else:
                 request.session["gold_sum"] -= rand_gold
-                request.session["activity"] += [f"Entered the casino and lost {rand_gold} golds. Ouch... ({timestampStr})"]
+                request.session["activity"] += [f"Entered the {location} and lost {rand_gold} golds. Ouch... ({timestampStr})"]
+                return redirect("/")
+        request.session["gold_sum"] += rand_gold
+        request.session["activity"] += [f"Earned {rand_gold} golds from the {location} ({timestampStr})"]
         return redirect("/")
 
 def reset(request):
